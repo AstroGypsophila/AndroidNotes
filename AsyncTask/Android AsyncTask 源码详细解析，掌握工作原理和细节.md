@@ -1,7 +1,7 @@
 
 我们常常会在面试中被问及 xx 知识点用法，然后面试官会接着问是否了解其工作原理。无可厚非，我们不能仅仅满足于会用，难道你就不想知道它是如何工作的，不想了解它的源码吗？
 
-之前我们在 [Android AsyncTask 基本用法，参数和步骤理解，开启异步任务之旅](article) 中提到
+之前我们在 [Android AsyncTask 基本用法，参数和步骤理解，开启异步任务之旅][article] 中提到
 > AsyncTask 是经过 Android 封装、简化的异步任务实现方式，内部实现也是由 Thread 和 Handler 来实现异步任务和切换线程的。
 
 并且还在小结中提到几项规则和一点拓展，那些都是结论，现在我们就来了解一下 AsyncTask 的相关源码，知晓它的工作原理吧。
@@ -256,7 +256,7 @@ private static class InternalHandler extends Handler {
 
 ```
 刚刚发送过来的消息 msg.what 为 MESSAGE_POST_RESULT，result.mTask.finish(result.mData[0]) 指的调用自身 AsyncTask 对象的 finish 方法。
-finish 方法就说明了 onCancelled 方法和 onPostExecute 互斥，另外，mStatus 状态的改变也说明同一个 AsycnTask 对象不能被调用多次 execute 方法。这些验证了之前文章 [Android AsyncTask 基本用法，参数和步骤理解，开启异步任务之旅](article) 中取消任务时候调用的是 onCancelled 方法的结论和注意规则！
+finish 方法就说明了 onCancelled 方法和 onPostExecute 互斥，另外，mStatus 状态的改变也说明同一个 AsycnTask 对象不能被调用多次 execute 方法。这些验证了之前文章 [Android AsyncTask 基本用法，参数和步骤理解，开启异步任务之旅][article] 中取消任务时候调用的是 onCancelled 方法的结论和注意规则！
 因此，阅读源码是不是会让你有一种 「知其然 知其所以然」 的感觉，棒极了，感觉世界都亮了。
 
 另外，这边还有一个 msg.what 为 MESSAGE_POST_PROGRESS 的情况，这个是调用 publishProgress 方法，返回任务过程的进度单位时，也走的是发送 Message 消息给 handler 处理，切换回 UI 线程的路。
