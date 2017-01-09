@@ -350,5 +350,6 @@ protected void onCancelled(Integer integer) {
 一点拓展是：
 在 Android 1.6 以前，AsyncTask 是串行处理任务，在 Android 1.6 开始是用线程池里处理并发任务。然后从 Android 3.0 开始又默认是一个线程串行处理任务，为的是避免  AsyncTask 带来并发错误，从这个版本及以后，我们可以通过 executeOnExecutor 方法来灵活传入配置的线程池处理并发，否则默认是以串行方式。
 
+到此 AsyncTask 的基本用法暂告一段落，但是你以为就结束了吗？来来来，继续吃我一篇 [Android AsyncTask 源码详细解析，掌握工作原理和细节](http://blog.csdn.net/astro_gypsophila/article/details/54233276)。
 
 本文若有描述不清或者错误之处，还请指出，多谢。
