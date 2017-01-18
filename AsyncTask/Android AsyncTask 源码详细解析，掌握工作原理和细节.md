@@ -1,3 +1,4 @@
+转载请标明出处：【Gypsophila 的博客】 http://blog.csdn.net/astro_gypsophila/article/details/54233276
 
 我们常常会在面试中被问及 xx 知识点用法，然后面试官会接着问是否了解其工作原理。无可厚非，我们不能仅仅满足于会用，难道你就不想知道它是如何工作的，不想了解它的源码吗？
 
